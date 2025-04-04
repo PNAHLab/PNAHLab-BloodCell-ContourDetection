@@ -8,8 +8,8 @@ class ImageProcess:
     
     def clahe(self, image, clahe=None):
         """Apply Contrast Limited Adaptive Histogram Equalization (CLAHE) for enhancing contrast"""
-        self.clahe = clahe if clahe is not None else cv2.createCLAHE(clipLimit=2.0, tileGridSize=(8, 8))
-        return self.clahe.apply(image)
+        clahe = clahe if clahe is not None else cv2.createCLAHE(clipLimit=2.0, tileGridSize=(8, 8))
+        return clahe.apply(image)
     
     def apply_threshold(self, image, threshold=150, method=cv2.THRESH_BINARY):
         """Apply binary thresholding to the image to create a binary (black & white) image"""
